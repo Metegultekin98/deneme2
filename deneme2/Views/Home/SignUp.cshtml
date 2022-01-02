@@ -1,0 +1,79 @@
+﻿@model deneme2.Models.User
+
+@{
+    ViewBag.Title = "SignUp";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="title" content="Sign Page" />
+</head>
+<body>
+    <div class="container-fluid" style="align-items:flex-end;
+                                        background-color: black;
+                                        text-align: center;
+                                        width: 25%;
+                                        border-radius: 15px;
+                                        color:white;
+                                        justify-content:center;
+                                        margin:10rem auto;
+                                        ">
+        <h2>SignUp</h2>
+
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true)
+
+
+            <fieldset>
+                <legend>User</legend>
+                @Html.AntiForgeryToken()
+                @if (ViewBag.Message != null)
+                {
+
+                    <div style="border:solid 1px green">
+                        @ViewBag.Message
+                    </div>
+                }
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.UserName)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.UserName)
+                    @Html.ValidationMessageFor(model => model.UserName)
+                </div>
+                <div class="editor-label">  
+                    @Html.LabelFor(model => model.Password)  
+                </div>  
+                <div class="editor-field">  
+                    @Html.EditorFor(model => model.Password)  
+                    @Html.ValidationMessageFor(model => model.Password)  
+                </div> 
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.ConfirmPassword)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.ConfirmPassword)
+                    @Html.ValidationMessageFor(model => model.ConfirmPassword)
+                </div>
+                <p>
+                    <input type="submit" value="Create" />
+                </p>
+            </fieldset>
+        }
+
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    </div>
+</body>
+</html>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

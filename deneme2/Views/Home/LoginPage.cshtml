@@ -1,0 +1,66 @@
+﻿@model deneme2.UserProfile
+
+@{
+    ViewBag.Title = "LoginPage";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="title" content="Login Page" />
+</head>
+<body>
+    <div class="container-fluid" style="align-items:flex-end;
+                                        background-color: black;
+                                        text-align: center;
+                                        width: 25%;
+                                        border-radius: 15px;
+                                        color:white;
+                                        justify-content:center;
+                                        margin:19.5rem auto;
+                                        ">
+        @using (Html.BeginForm("LoginPage", "Home", FormMethod.Post))
+        {
+            <fieldset>
+                <legend>Login</legend>
+
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                @if (@ViewBag.Message != null)
+                {
+                    <div style="border: 1px solid red">
+                        @ViewBag.Message
+                    </div>
+                }
+                <table>
+                    <tr>
+                        <td>@Html.LabelFor(a => a.UserName)</td>
+                        <td>@Html.TextBoxFor(a => a.UserName)</td>
+                        <td>@Html.ValidationMessageFor(a => a.UserName)</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(a => a.Password)
+                        </td>
+                        <td>
+                            @Html.PasswordFor(a => a.Password)
+                        </td>
+                        <td>
+                            @Html.ValidationMessageFor(a => a.Password)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input type="submit" value="Login" />
+                        </td>
+                        <td></td>
+                    </tr>
+                </table>
+            </fieldset>
+        }
+    </div>
+</body>
+</html>

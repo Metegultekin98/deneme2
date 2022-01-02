@@ -1,0 +1,75 @@
+﻿@model deneme2.UserProfile
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>StajProje</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        body {
+            background-image: url(https://www.metalgearinformer.com/wp-content/uploads/2014/07/MGSV-TPP-Snake-Scream.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        footer {
+            clear: both;
+            font-style: italic;
+            font: arial;
+            background-color: black;
+            color: white;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 35px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-fixed-top" style="background-color:black">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/Home/">Yep</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar" style="color:black">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">None</a></li>
+                    <li><a href="#">Of</a></li>
+                    <li><a href="#">These</a></li>
+                    <li><a href="#">Buttons</a></li>
+                    <li><a href="#">Work</a></li>
+                    @if (Session["UserId"] != null)
+                    {
+                        <li><a href="/Home/ProductList">Products</a></li>
+                    }
+                </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/Home/SessionPage"><span class="glyphicon glyphicon-log-in"></span> Session</a></li>
+                        <li><a href="/Home/SignUp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                        <li><a href="/Home/LoginPage"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="row-no-gutters">
+            @RenderBody()
+
+            <footer class="row">
+                <div>
+                    <div class="container-fluid" style="width:98%">
+                        <p>&copy; @DateTime.Now.Year The Dumbest Website of the Year</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

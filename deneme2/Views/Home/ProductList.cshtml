@@ -1,0 +1,46 @@
+﻿@model deneme2.Products
+
+@{
+    ViewBag.Title = "ProductList";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="title" content="Products Page" />
+</head>
+<body>
+    <div class="container-fluid" style="align-items:flex-end;
+                                        background-color: black;
+                                        text-align: center;
+                                        width: 25%;
+                                        border-radius: 15px;
+                                        color:white;
+                                        justify-content:center;
+                                        margin:19.5rem auto;
+                                        ">
+        @*@Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)*@
+        <table>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductId);
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.ProductName);
+                </td>
+                <td>
+                    @Html.DisplayNameFor(model => model.ProductColor);
+                </td>
+                <td>
+                    @Html.DisplayNameFor(model => model.ProductPrice);
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

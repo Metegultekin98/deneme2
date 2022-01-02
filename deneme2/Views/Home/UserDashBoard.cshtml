@@ -1,0 +1,33 @@
+﻿@model deneme2.UserProfile
+
+@{
+    ViewBag.Title = "UserDashBoard";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>S
+    <meta name="viewport" content="width=device-width" />
+    <meta name="title" content="Sign Page" />
+</head>
+<body>
+    <div class="container-fluid" style="align-items:flex-end;
+                                        background-color: black;
+                                        text-align: center;
+                                        width: 25%;
+                                        border-radius: 15px;
+                                        color:white;
+                                        justify-content:center;
+                                        margin:10rem auto;
+                                        ">
+        <fieldset>
+        <legend> User </legend>
+
+        @if (Session["UserName"] != null)
+        {<text>
+            Welcome @Session["UserName"].ToString() </text>
+            } </fieldset>
+    </div>
+</body>
+</html>
